@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Validator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-7yUtQu5dak_CgWBHsmhwVIzDwjPi51XiEw&s" type="image/x-icon">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Kanit", sans-serif;
+           
+        }
+
+        main {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            background-color: #014179;
+            align-items: center;
+        }
+
+        .box {
+            height: 460px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+            background-color: white;
+
+        }
+
+        .box h1 {
+            padding-top: 20px;
+        }
+
+        .box input[type='text'] {
+            height: 40px;
+            width: 90%;
+            margin-top: 30px;
+            border-radius: 10px;
+            border: 1px solid rgb(124, 121, 121);
+            outline: none;
+            padding-left: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+           
+        }
+
+        .pop {
+            height: 300px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .pop h3 {
+            text-decoration: line-through;
+            margin-top: 30px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="box">
+            <h1>Password Validator</h1>
+            <input type="text" id="input" oninput="foo()">
+            <div class="pop">
+
+                <h3 id="number"> <i class="fa-solid fa-check"></i> &nbsp; 1 Number (0-9)</h3>
+                <h3 id="letters"> <i class="fa-solid fa-check"></i> &nbsp; 11 Letters</h3>
+                <h3 id="special"> <i class="fa-solid fa-check"></i> &nbsp; 1 Special Character</h3>
+                <h3 id="lowercase"> <i class="fa-solid fa-check"></i> &nbsp; 1 Lowercase Letter</h3>
+                <h3 id="uppercase"> <i class="fa-solid fa-check"></i> &nbsp; 1 Uppercase Letter</h3>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function foo() {
+
+            const input = document.getElementById('input').value;
+
+            const number = document.getElementById('number');
+            const letters = document.getElementById('letters');
+            const special = document.getElementById('special');
+            const lowercase = document.getElementById('lowercase');
+            const uppercase = document.getElementById('uppercase');
+
+
+            if (/\d/.test(input)) {
+
+                number.style.color = 'green';
+                number.style.textDecoration = 'none';
+
+            } else {
+
+                number.style.color = 'black';
+            }
+
+
+            if (/[a-zA-Z].{11}/.test(input)) {
+
+                letters.style.color = 'green';
+                letters.style.textDecoration = 'none';
+
+
+            } else {
+
+                letters.style.color = 'black';
+            }
+
+
+            if (/[^a-zA-Z0-9]/.test(input)) {
+
+                special.style.color = 'green';
+                special.style.textDecoration = 'none';
+
+            } else {
+                special.style.color = 'black';
+            }
+
+
+            if (/[a-z]/.test(input)) {
+                lowercase.style.color = 'green';
+                lowercase.style.textDecoration = 'none';
+
+            } else {
+                lowercase.style.color = 'black';
+            }
+
+
+            if (/[A-Z]/.test(input)) {
+                uppercase.style.color = 'green';
+                uppercase.style.textDecoration = 'none';
+            } else {
+                uppercase.style.color = 'black';
+            }
+        }
+    </script>
+</body>
+
+</html>
